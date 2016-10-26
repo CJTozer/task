@@ -262,7 +262,10 @@ int CmdInfo::execute (std::string& output)
     {
       row = view.addRow ();
       view.set (row, 0, STRING_COLUMN_LABEL_DUE);
-      view.set (row, 1, ISO8601d (task.get_date ("due")).toString (dateformat));
+
+      ISO8601d due (task.get_date ("due"));
+      std::string rem = ISO8601p (due - now).formatVague ();
+      view.set (row, 1, due.toString (dateformat) + " (" + rem + ")");
     }
 
     // end
