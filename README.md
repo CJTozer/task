@@ -2,7 +2,7 @@
 
 * Add the time delta to the `Due` row - e.g. `Due: 2016-10-11 12:13:14 (2d)`
 * Add `eonww` as an alias for due by the end of the next work week
-* Change the meaning of `tomorrow` so it's the end of the day.  The original `tomorrow` is just `eod`.
+* Change the meaning of `tomorrow` so it's the end of tomorrow.  The original `tomorrow` is just `eod`.
 
 # Disclaimer during ongoing development
 
