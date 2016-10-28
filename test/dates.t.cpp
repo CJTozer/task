@@ -132,6 +132,7 @@ int main (int, char**)
   Variant eocm;           testInit (t, "eocm", eocm);
   Variant soww;           testInit (t, "soww", soww);
   Variant eoww;           testInit (t, "eoww", eoww);
+  Variant eonww;          testInit (t, "eonww", eonww);
   Variant som;            testInit (t, "som", som);
   Variant eom;            testInit (t, "eom", eom);
   Variant later;          testInit (t, "later", later);

@@ -98,6 +98,7 @@ _regex_words values 'task dates' \
   'soy:Start of year' \
   'eow:End of week' \
   'eoww:End of work week' \
+  'eonww:End of next work week' \
   'eocw:End of calendar week' \
   'eom:End of month' \
   'eoq:End of quarter' \

@@ -115,7 +115,7 @@ static void midsommarafton (struct tm* t)
 //   soy, eoy
 //   socw, eocw
 //   sow, eow
-//   soww, eoww
+//   soww, eoww, eonww
 //   sod, eod
 //   yesterday
 //   today
@@ -173,8 +173,9 @@ bool namedDates (const std::string& name, Variant& value)
 
   else if (closeEnough ("tomorrow", name, minimum))
   {
-    t->tm_mday++;
-    t->tm_hour = t->tm_min = t->tm_sec = 0;
+    t->tm_mday += 2;
+    t->tm_hour = t->tm_min = 0;
+    t->tm_sec = -1;
     t->tm_isdst = -1;
     value = Variant (mktime (t), Variant::type_date);
   }
@@ -351,6 +352,20 @@ bool namedDates (const std::string& name, Variant& value)
     int extra = (5 - t->tm_wday) * 86400;
     if (extra < 0)
       extra += 7 * 86400;
+
+    t->tm_isdst = -1;
+    value = Variant (mktime (t) + extra, Variant::type_date);
+  }
+
+  else if (closeEnough ("eonww", name, minimum))
+  {
+    t->tm_hour = 24;
+    t->tm_min = 0;
+    t->tm_sec = -1;
+    int extra = (5 - t->tm_wday) * 86400;
+    if (extra < 0)
+      extra += 7 * 86400;
+    extra += 7 * 86400; // We're talking about next week
 
     t->tm_isdst = -1;
     value = Variant (mktime (t) + extra, Variant::type_date);
